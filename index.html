@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+	    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+	    <link href="css/dialog.css" />
+	    
+	    <script src="js/jquery-3.3.1.min.js"></script>
+	    <script src="js/dialog.js"></script>
+	    <title></title>
+	    <style>
+	    	.btn{
+	    		display: block;
+	    		background-color: #076cf9;
+	    		font-size: 18px;
+	    		color: white;
+	    		padding: 8px;
+	    		text-align: center;
+	    		border-radius: 4px;
+	    	}
+	    	
+	    	.btn:hover{
+	    		background-color: #6da2eb;
+	    	}
+	    	
+	    </style>
+	</head>
+	<body>
+		<div id="bg" style="display: none;"></div>
+		<div class="box" style="display: none;">
+			<div style="padding:10px;font-size: 14px;word-wrap:break-word;word-break:break-all; overflow: hidden; max-height: 250px;">
+				<div style="display: flex; justify-content: space-between; font-size: 18px;">
+					<span style="margin-top: 8px;">价格</span>
+					<span>
+						<input style="width: 96px; font-size: 18px; text-align: center; height: 35px;" value="20" />
+						元
+					</span>
+				</div>
+				<div style="display: flex; justify-content: space-between; font-size: 18px; margin-top: 10px;">
+					<span style="margin-top: 8px;">兑币数量</span>
+					<div class="mui-numbox" data-numbox-min='0'>
+					  <!-- "-"按钮，点击可减小当前数值 -->
+					  <button class="mui-btn mui-numbox-btn-minus" type="button">-</button>
+					  <input class="mui-numbox-input" type="number" />
+					  <!-- "+"按钮，点击可增大当前数值 -->
+					  <button class="mui-btn mui-numbox-btn-plus" type="button">+</button>
+					</div>
+				</div>
+			</div>
+			<div style="border-top: solid #BBBBBB 1px; padding: 10px;">
+				<div class="mui-row">
+			        <div class="mui-col-sm-6 mui-col-xs-6" style="padding-right: 5px;">
+			            <button onclick="closeDialog()" type="button" class="mui-btn" style="width: 100%;">取消</button>
+			        </div>
+			        <div class="mui-col-sm-6 mui-col-xs-6" style="padding-left: 5px;">
+			            <button type="button" class="mui-btn mui-btn-primary" style="width: 100%;">确定</button>
+			        </div>
+			    </div>
+			</div>
+		</div>
+	
+		<div style="padding: 8px;">
+			<a onclick="test()" class="btn">加载框</a>
+		</div>
+	</body>
+	
+	<script>
+		function test(){
+			 window.wxc.showMask();
+		}
+		
+		function showDialog(){
+      		$("#bg").css("display","block");
+      		//$(".box").css("display","block");
+      		
+  			$(".box").fadeIn("slow");
+      	}
+      	
+      	function closeDialog(){
+      		
+      		//$(".box").css("display","none");
+      		$(".box").fadeOut("slow");
+      		$("#bg").css("display","none");
+      	}
+	</script>
+</html>
